@@ -37,5 +37,26 @@ namespace problems {
             }   
             return bitwise;
         }
+
+        // 1108
+        public string DefangIPaddr(string address) {
+            int i = address.Length -1;
+            char[] newAddress = new char[address.Length+6];
+
+            for (int j = newAddress.Length -1; i >= 0 ;)
+            {
+                if (address[i] == '.') {
+                    newAddress[j] = ']'; 
+                    newAddress[j-1] = '.'; 
+                    newAddress[j-2] = '['; 
+                    j-=3;
+                }                  
+                else 
+                    newAddress[j--] = address[i];
+                i--;
+            }
+
+            return new string(newAddress);
+        }
     }
 }
