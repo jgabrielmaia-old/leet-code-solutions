@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 namespace problems {
     public class LeetSolution {
@@ -40,20 +40,18 @@ namespace problems {
 
         // 1108
         public string DefangIPaddr(string address) {
-            int i = address.Length -1;
-            char[] newAddress = new char[address.Length+6];
+            int i = 0;
+            char[] newAddress = new char[address.Length + 6];
 
-            for (int j = newAddress.Length -1; i >= 0 ;)
+            foreach (var c in address)
             {
-                if (address[i] == '.') {
-                    newAddress[j] = ']'; 
-                    newAddress[j-1] = '.'; 
-                    newAddress[j-2] = '['; 
-                    j-=3;
+                if (c == '.') {
+                    newAddress[i++] = '['; 
+                    newAddress[i++] = '.'; 
+                    newAddress[i++] = ']'; 
                 }                  
                 else 
-                    newAddress[j--] = address[i];
-                i--;
+                    newAddress[i++] = c;
             }
 
             return new string(newAddress);
