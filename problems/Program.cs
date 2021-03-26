@@ -6,10 +6,14 @@ namespace problems
     {
         static void Main(string[] args)
         {
-            var solution = new LeetSolution();
+            var solution = new PermuteProblem();
+            var result = solution.Permute(new int[2] {1,2});
 
-            var result = solution.DefangIPaddr("255.100.50.0");
-            Console.WriteLine(result);
+            foreach (var array in result){
+                foreach (var element in array)
+                    Console.Write(element + "|");
+                Console.WriteLine();
+            }
         }
     }
 }
